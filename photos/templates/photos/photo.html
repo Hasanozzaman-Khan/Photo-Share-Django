@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>photo</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="{% static 'photos/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'photos/css/style.css' %}">
+
+  </head>
+  <body class="m-5">
+    <div class="container">
+      <div class="row justify-content-center ">
+        <div class="col">
+          <a href="{% url 'gallery' %}" class="btn btn-dark my-3">Go Back</a>
+          <div class="viewphoto">
+            <img class="photosize" src="{{ photo.image.url }}" alt="Photos not found!">
+            <p>{{ photo.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

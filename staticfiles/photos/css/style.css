@@ -1,0 +1,16 @@
+.image-thumbail{
+  height: 200px;
+  object-fit: cover;
+}
+.viewphoto{
+  height: 90vh;
+}
+.photosize{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.navlist{
+  text-decoration: none;
+  color: black;
+}

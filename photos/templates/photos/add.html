@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Add photo</title>
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="{% static 'photos/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'photos/css/style.css' %}">
+
+  </head>
+  <body class="m-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <a href="{% url 'gallery' %}" class="btn btn-dark my-3">Go Back</a>
+
+          <form class="" action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form-group m-3">
+              <label class="form-label">Description</label>
+              <input type="text" name="description" placeholder="Enter a description" class="form-control" required>
+            </div>
+
+            <div class="form-group m-3">
+              <label class="form-label">Select a category</label>
+              <select class="form-control" name="category">
+                <option value="none">Select a category</option>
+                {% for category in categories %}
+                  <option value="{{category.id}}">{{category.name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+
+            <div class="form-group m-3">
+              <label class="form-label">Create a new category</label>
+              <input type="text" name="category_new" placeholder="Create a new category" class="form-control">
+            </div>
+
+            <div class="form-group m-3">
+              <label class="form-label">Upload image</label>
+              <input type="file" name="image" class="form-control-file" required>
+            </div>
+
+            <button type="submit" name="button" class="btn btn-primary m-3">Submit</button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
